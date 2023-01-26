@@ -15,14 +15,14 @@ const fetchData = {
         let postId = uuid();
         const formatted = logResponse.children.map(post => newArray.push(
             {
-                [postId]: {
-                    title: post.data.title,
-                    author: post.data.author_fullname,
-                    upvotes: post.data.ups,
-                    comments: post.data.num_comments,
-                    permalink: post.data.permalink,
-                    img: post.data.url
-                }
+                id: postId,
+                title: post.data.title,
+                author: post.data.author_fullname,
+                upvotes: post.data.ups,
+                comments: post.data.num_comments,
+                permalink: post.data.permalink,
+                img: post.data.url
+
             }
         ));
         return newArray;

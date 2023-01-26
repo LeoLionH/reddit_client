@@ -6,11 +6,13 @@ const initialState = {
     hasFailed: false
 };
 
-const redditThunk = createAsyncThunk('lister/redditThunk', async () => {
-    const response = await fetch('/api');
-    const json = await response.json();
-    return json;
-});
+export const redditThunk = createAsyncThunk('lister/getRedditData',
+    async (thunkAPI) => {
+        const response = await fetch('/api');
+        const json = await response.json();
+        console.log(json);
+        return json;
+    });
 
 export const listerSlice = createSlice({
     name: "lister",
@@ -34,5 +36,5 @@ export const listerSlice = createSlice({
     }
 });
 
-export const { isLoading } = listerSlice.actions;
+export const { isLoading, getRedditData } = listerSlice.actions;
 export default listerSlice.reducer;
