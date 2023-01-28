@@ -7,8 +7,8 @@ const initialState = {
 };
 
 export const redditThunk = createAsyncThunk('lister/getRedditData',
-    async (thunkAPI) => {
-        const response = await fetch('/api');
+    async (keyword) => {
+        const response = await fetch(`/api?keyword=${keyword}`);
         const json = await response.json();
         console.log(json);
         return json;

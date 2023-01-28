@@ -1,21 +1,18 @@
 const axios = require('axios');
-const { uuid } = require('uuidv4');
 
 const fetchData = {
-    keyword: "crypto",
-    getData: async function () {
-        const queryString = `?q=${this.keyword}`;
-        const url = `https://www.reddit.com/search.json${queryString}`
+    getData: async function (keyword) {
+        const queryString = `?q=${keyword}`;
+        const url = `https://www.reddit.com/search.json${queryString}`;
+        console.log(url);
         const response = await axios.get(url)
         return response.data.data;
     },
-    formatData: async function () {
-        const logResponse = await this.getData();
+    formatData: async function (keyword) {
+        const logResponse = await this.getData(keyword);
         newArray = [];
-        let postId = uuid();
         const formatted = logResponse.children.map(post => newArray.push(
             {
-                id: postId,
                 title: post.data.title,
                 author: post.data.author_fullname,
                 upvotes: post.data.ups,
