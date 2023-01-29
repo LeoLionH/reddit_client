@@ -6,6 +6,7 @@ import { Search } from '../search/Search';
 
 export function Lister() {
     const data = useSelector(state => state.lister.redditData);
+    console.log(data)
     const isLoading = useSelector(state => state.lister.isLoading);
     const keywordState = useSelector(state => state.search.keyword);
     const dispatch = useDispatch();
@@ -23,7 +24,7 @@ export function Lister() {
         <div>
             <Search submitKeyword={submitKeyword} />
             <p>See the data:</p>
-            {data.map(article =>
+            {data.data.map(article =>
                 <Card
                     key={article.title}
                     article={article}

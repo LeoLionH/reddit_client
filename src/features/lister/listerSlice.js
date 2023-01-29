@@ -1,7 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    redditData: [],
+    redditData: {
+        meta: {},
+        data: []
+    },
     isLoading: false,
     hasFailed: false
 };
