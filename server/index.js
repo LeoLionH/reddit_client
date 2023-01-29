@@ -5,6 +5,8 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 
+console.log(__dirname);
+
 app.use(express.static(path.resolve(
     __dirname, '../build')));
 
