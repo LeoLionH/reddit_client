@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { redditThunk } from './listerSlice';
 import { Card } from '../card/Card';
 import { Search } from '../search/Search';
+import '../card/Card.css';
 
 export function Lister() {
     const data = useSelector(state => state.lister.redditData);
@@ -23,11 +24,11 @@ export function Lister() {
     return (
         <div>
             <Search submitKeyword={submitKeyword} />
-            <p>See the data:</p>
             {data.data.map(article =>
                 <Card
-                    key={article.title}
+                    key={article.id}
                     article={article}
+                    className="card"
                 />)
             }
         </div>)

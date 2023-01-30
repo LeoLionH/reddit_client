@@ -4,7 +4,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 let cacheVar = {
     meta: {
-        keyword: "",
+        keyword: "crypto",
         dateTime: Date.now()
     },
     data: []
@@ -18,6 +18,7 @@ app.use(express.static(path.resolve(
 
 app.get("/api", async (req, res) => {
     const keyword = req.query.keyword;
+    if (keyword === "undefined") keyword === "gaming";
     const useCache = await fetchData.checkCache(cacheVar, keyword);
     console.log(useCache);
     if (useCache) { return res.json(cacheVar) }

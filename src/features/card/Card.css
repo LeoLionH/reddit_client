@@ -1,0 +1,24 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    align-content: flex-start;
+    margin: 20px;
+    padding: 20px;
+    width: 25%;
+}
+
+

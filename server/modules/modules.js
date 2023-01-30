@@ -1,4 +1,5 @@
 const axios = require('axios');
+const { v4: uuidv4 } = require('uuid');
 
 let fetchData = {
     getData: async function (keyword) {
@@ -21,22 +22,27 @@ let fetchData = {
         }
         //Search keyword
 
-        logResponse.children.map(post => newArray.data.push(
-            {
-                title: post.data.title,
-                author: post.data.author_fullname,
-                upvotes: post.data.ups,
-                comments: post.data.num_comments,
-                permalink: post.data.permalink,
-                img: post.data.url
+        logResponse.children.map(post => {
+            let id = uuidv4();
+            newArray.data.push(
+                {
+                    id: id,
+                    title: post.data.title,
+                    author: post.data.author_fullname,
+                    upvotes: post.data.ups,
+                    comments: post.data.num_comments,
+                    permalink: post.data.permalink,
+                    img: post.data.thumbnail
 
-            }
-        ));
+                })
+        });
         fetchData = newArray;
         return fetchData;
     },
     checkCache: async function (cacheVar, keyword) {
         console.log('cacheVar is ' + cacheVar);
+        console.log('keyword is' + keyword);
+        if (cacheVar.meta.keyword === undefined || keyword === undefined) return false
         if (
             cacheVar.meta.keyword.toLowerCase() === keyword.toLowerCase()
             && (cacheVar.meta.dateTime - Date.now() <= 300000)) return true;
