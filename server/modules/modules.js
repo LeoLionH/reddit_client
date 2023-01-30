@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const fetchData = {
+let fetchData = {
     getData: async function (keyword) {
         const url = `https://www.reddit.com/search.json?q=${keyword}`;
         console.log(url);
@@ -32,9 +32,15 @@ const fetchData = {
 
             }
         ));
-        //console.log(newArray);
-        let oldArray = newArray;
-        return oldArray;
+        fetchData = newArray;
+        return fetchData;
+    },
+    checkCache: async function (cacheVar, keyword) {
+        console.log('cacheVar is ' + cacheVar);
+        if (
+            cacheVar.meta.keyword.toLowerCase() === keyword.toLowerCase()
+            && (cacheVar.meta.dateTime - Date.now() <= 300000)) return true;
+        else false
     }
 }
 

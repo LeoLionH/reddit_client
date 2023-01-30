@@ -19,6 +19,7 @@ export function Search({ submitKeyword }) {
     return (
         <form onSubmit={handleSubmit}>
             <input
+                required
                 type="text"
                 placeholder="search reddit"
                 onChange={handleChange}
