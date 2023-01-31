@@ -38,3 +38,25 @@
   }
 }
 
+.search {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  margin: 20px;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.form-control, button {
+  margin: 10px;
+}
+
+.card {
+  max-width: 25%;
+}
+
