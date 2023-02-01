@@ -10,11 +10,13 @@ export function Card(props) {
             <a href={url} className="card mb-4 rounded-3 shadow-sm">
                 <h3 className="card-title pricing-card-title">{title}</h3>
                 <table className="row justify-content-center">
-                    <tr className="row justify-content-center">
-                        <th className="col-3">Author</th>
-                        <th className="col-3">Upvotes</th>
-                        <th className="col-3">Comments</th>
-                    </tr>
+                    <thead>
+                        <tr className="row justify-content-center">
+                            <th className="col-3">Author</th>
+                            <th className="col-3">Upvotes</th>
+                            <th className="col-3">Comments</th>
+                        </tr>
+                    </thead>
                     <tbody>
                         <tr className="row justify-content-center">
                             <td className="col-3">{author}</td>

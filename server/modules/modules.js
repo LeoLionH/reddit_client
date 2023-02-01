@@ -28,7 +28,7 @@ let fetchData = {
                 {
                     id: id,
                     title: post.data.title,
-                    author: post.data.author_fullname,
+                    author: post.data.author,
                     upvotes: post.data.ups,
                     comments: post.data.num_comments,
                     permalink: post.data.permalink,

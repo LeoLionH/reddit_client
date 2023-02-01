@@ -15,22 +15,20 @@ export function Search({ submitKeyword }) {
     }
 
     return (
-        <div className="headerContainer text-center">
-            <header className="row justify-content-center">
-                <h1 className="col col-4">Reddit Searcher</h1>
-                <form className="col col-2 search container" onSubmit={handleSubmit}>
-                    <input
-                        required
-                        className="form-control"
-                        type="search"
-                        placeholder="search reddit"
-                        onChange={handleChange}
-                        value={stateKeyword}
-                    >
-                    </input>
-                    <button className="btn btn-outline-primary" type="submit">Search</button>
-                </form>
-            </header>
-        </div>
+        <header className="row headerContainer">
+            <h1 className="col col-2 searchContainer">Reddit Searcher</h1>
+            <form className="col col-2 searchContainer" onSubmit={handleSubmit}>
+                <input
+                    required
+                    className="form-control"
+                    type="search"
+                    placeholder="Search Reddit"
+                    onChange={handleChange}
+                    value={stateKeyword}
+                >
+                </input>
+                <button className="btn btn-outline-primary" type="submit">Search</button>
+            </form>
+        </header>
     )
 }

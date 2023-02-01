@@ -40,6 +40,7 @@
 
 .search {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -50,13 +51,62 @@
 h1 {
   text-align: center;
   padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .form-control, button {
   margin: 10px;
+  min-width: 200px;
+  max-width: 200px;;
 }
 
-.card {
-  max-width: 25%;
+.headerContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
+.searchContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 1601px) {
+  .card {
+    max-width: 25%;
+  }
+  
+  .searchContainer {
+    min-width: 400px;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 1600px) {
+  .card {
+    min-width: 50%;
+    max-width: 50%;
+  }
+  .searchContainer {
+    min-width: 400px;
+    justify-content: center;
+    min-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .card {
+    min-width: 80%;
+  }
+  .searchContainer {
+    max-width: 200px;
+  }
+
+}
+
+
+
+
 
