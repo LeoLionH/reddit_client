@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { updateKeyword } from "./searchSlice";
+import { Lister } from '../lister/Lister';
+import { redditThunk } from "../lister/listerSlice";
 
-export function Search({ submitKeyword }) {
+export function Search() {
     const dispatch = useDispatch();
     const stateKeyword = useSelector(state => state.search.keyword);
 
@@ -11,13 +13,14 @@ export function Search({ submitKeyword }) {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        submitKeyword(stateKeyword);
+        if (stateKeyword === "") return;
+        dispatch(redditThunk(stateKeyword));
     }
 
     return (
         <header className="row headerContainer">
             <h1 className="col col-2 searchContainer">Reddit Searcher</h1>
-            <form className="col col-2 searchContainer" onSubmit={handleSubmit}>
+            <form data-testid="searchForm" className="col col-2 searchContainer" onSubmit={handleSubmit}>
                 <input
                     required
                     className="form-control"
@@ -27,8 +30,13 @@ export function Search({ submitKeyword }) {
                     value={stateKeyword}
                 >
                 </input>
-                <button className="btn btn-outline-primary" type="submit">Search</button>
+                <button
+                    data-testid="search-button"
+                    className="btn btn-outline-primary"
+                    type="submit">Search
+                </button>
             </form>
+            <Lister />
         </header>
     )
 }
