@@ -11,6 +11,6 @@ describe("Check app", () => {
       <Provider store={store}>
         <App />
       </Provider>);
-    expect(queryByText("Loading...")).toBeTruthy();
+    expect(queryByText("Reddit Searcher")).toBeTruthy();
   })
 })

@@ -13,7 +13,6 @@ export const redditThunk = createAsyncThunk('lister/getRedditData',
     async (keyword) => {
         const response = await fetch(`/api?keyword=${keyword}`);
         const json = await response.json();
-        console.log(json);
         return json;
     });
 
