@@ -1,46 +1,30 @@
-# Getting Started with Create React App and Redux
+#Reddit client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+## Table of contents
 
-## Available Scripts
+- About Reddit client
+- design and architecture
+- Installation
 
-In the project directory, you can run:
+### About Reddit client
 
-### `npm start`
+The Reddit client is a project created to search reddit for specific keywords and return formatted results within the UI. 
+It exists as part of a Codecademy project to show understanding of technologies such as React and Redux. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### design and architecture
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Architectural diagrams can be found in the folder ~/designDocs. The technology stack is based on:
 
-### `npm test`
+- Reddit API for retrieving posts
+- Node server who's primary use is to retrieve, cache and format the API results
+- Redux state management that is responsible for storing the search and its results client side 
+- React client which requests and renders the search results from the Redux store
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
 
-### `npm run build`
+Installation should be as simple as: 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Downloading the git repo
+- Navigating to the directory
+- Run 'git install' for dependencies
+- Run 'npm run test' to initalize both the server and react-app
