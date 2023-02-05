@@ -4,11 +4,11 @@ import { Provider } from 'react-redux';
 import { store } from '../../app/store';
 
 describe("SearchBox submits", () => {
-    it("submits", () => {
+    it("Form submits with text", () => {
         const handleSubmit = jest.fn(() => { return "test" });
         const e = { target: { value: "test" } };
-        const handleChange = jest.fn((e) => {
-            const value = e.target.value;
+        const handleChange = jest.fn().mockImplementation((e) => {
+            e.preventDefault();
         })
         const { queryByTestId } = render(
             <Provider store={store}>
@@ -18,9 +18,9 @@ describe("SearchBox submits", () => {
                 />
             </Provider>
         );
-        fireEvent.click(queryByTestId('search-button'));
-        expect(handleSubmit).toBeCalled();
         fireEvent.change(queryByTestId('searchInput'), { target: { value: "test" } })
+        fireEvent.submit(queryByTestId('searchForm'));
+        expect(handleSubmit).toBeCalled();
         expect(handleChange).toBeCalled();
     })
 })

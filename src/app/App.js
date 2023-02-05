@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import { store } from './store';
 import { Search } from '../features/search/Search';
 import './App.css';
 

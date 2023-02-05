@@ -1,24 +1,23 @@
-import { useDispatch, useSelector } from "react-redux";
-import { updateKeyword } from "./searchSlice";
+import { useDispatch } from "react-redux";
 import { Lister } from '../lister/Lister';
 import { redditThunk } from "../lister/listerSlice";
 import { SearchBox } from "../SearchBox/SearchBox";
+import { useState } from "react";
 
 
 export function Search() {
     const dispatch = useDispatch();
-    const selectKeyword = useSelector(state => state.search.keyword);
-    const checkState = useSelector(state => state);
+    const [keyword, setKeyword] = useState("");
 
     const handleChange = (e) => {
         const value = e.target.value;
-        dispatch(updateKeyword(value));
+        setKeyword(value);
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (selectKeyword === "") return;
-        dispatch(redditThunk(selectKeyword));
+        if (keyword === "") return;
+        dispatch(redditThunk(keyword));
     }
 
     return (
@@ -26,6 +25,7 @@ export function Search() {
             <SearchBox
                 handleSubmit={handleSubmit}
                 handleChange={handleChange}
+                keyword={keyword}
             />
             <Lister />
         </>

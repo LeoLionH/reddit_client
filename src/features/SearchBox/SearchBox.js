@@ -1,9 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
 export function SearchBox(props) {
-    const { handleSubmit, handleChange } = props;
-    const keyword = useSelector(state => state.search.keyword);
+    const { handleSubmit, handleChange, keyword } = props;
     return (
         <header className="row headerContainer">
             <h1 className="col col-2 searchContainer">Reddit Searcher</h1>
