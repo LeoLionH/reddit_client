@@ -81,6 +81,14 @@ td, th {
   min-width: 100px;
 }
 
+.cardListParent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  position: relative;
+  top: 20px;
+}
+
 @media only screen and (min-width: 1601px) {
   .card {
     max-width: 25%;
@@ -110,6 +118,12 @@ td, th {
   }
   .searchContainer {
     max-width: 200px;
+  }
+
+  .cardListParent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
 
 }
