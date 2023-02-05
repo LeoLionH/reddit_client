@@ -18,9 +18,8 @@ app.use(express.static(path.resolve(
 
 app.get("/api", async (req, res) => {
     const keyword = req.query.keyword;
-    if (keyword === "undefined") keyword === "gaming";
+    if (keyword === undefined || keyword === "") keyword === "gaming";
     const useCache = await fetchData.checkCache(cacheVar, keyword);
-    console.log(useCache);
     if (useCache) { return res.json(cacheVar) }
     else {
         const data = await fetchData.formatData(keyword);
